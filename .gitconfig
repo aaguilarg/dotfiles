@@ -1,0 +1,11 @@
+[user]
+	name = aaguilarg
+	email = 37163726+aaguilarg@users.noreply.github.com
+[core]
+	editor = nvim
+[push]
+	autoSetupRemote = true
+[init]
+	defaultBranch = master
+[fetch]
+	prune = true

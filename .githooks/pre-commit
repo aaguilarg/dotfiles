@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+# Refuses a commit when a staged file matches a pattern in private/leak-patterns (one extended
+# regex per line). The list lives in the private repo, so this repo never names what it hides.
+set -euo pipefail
+patterns="$(git rev-parse --show-toplevel)/private/leak-patterns"
+[ -f "$patterns" ] || exit 0
+if git grep --cached -I -n -i -E -f <(grep -v '^[[:space:]]*$' "$patterns"); then
+  echo "pre-commit: the lines above match private/leak-patterns; edit or unstage them." >&2
+  exit 1
+fi
