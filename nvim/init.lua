@@ -128,7 +128,6 @@ rtp:prepend(lazypath)
 require('lazy').setup({
   { import = 'plugins' },
 
-  { 'https://tpope.io/vim/fugitive.git' },
   {
     'stevearc/oil.nvim',
     opts = {},
